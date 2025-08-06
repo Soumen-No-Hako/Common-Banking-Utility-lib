@@ -3,7 +3,7 @@ package com.banking.lib.common.dataMasking;
 public class Masker {
     public static String maskEmail(String email)
     {
-        if (email == null || email.indexOf('@') < 5) { // Needs at least 3 chars before @
+        if (email == null || email.indexOf('@') < 5) { // Needs at least 5 chars before @
             return "******";
         }
         int pos = email.indexOf('@');
