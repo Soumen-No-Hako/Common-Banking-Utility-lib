@@ -1,4 +1,4 @@
-package com.banking.lib.common.dataValidation;
+package artim.nemuos.banking.lib.common.dataValidation;
 
 import java.util.regex.Pattern;
 

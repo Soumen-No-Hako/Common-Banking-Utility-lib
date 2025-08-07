@@ -1,4 +1,4 @@
-package com.banking.lib.common.bankingExceptions.response;
+package artim.nemuos.banking.lib.common.bankingExceptions.response;
 
 public class UnableToBlacklistException extends RuntimeException{
     public UnableToBlacklistException() {
