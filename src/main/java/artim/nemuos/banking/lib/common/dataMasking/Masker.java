@@ -1,4 +1,4 @@
-package com.banking.lib.common.dataMasking;
+package artim.nemuos.banking.lib.common.dataMasking;
 
 public class Masker {
     public static String maskEmail(String email)

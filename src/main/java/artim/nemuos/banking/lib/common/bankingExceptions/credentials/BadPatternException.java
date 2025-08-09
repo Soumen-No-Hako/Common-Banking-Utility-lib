@@ -1,4 +1,4 @@
-package com.banking.lib.common.bankingExceptions.credentials;
+package artim.nemuos.banking.lib.common.bankingExceptions.credentials;
 
 public class BadPatternException extends RuntimeException{
     public BadPatternException()
