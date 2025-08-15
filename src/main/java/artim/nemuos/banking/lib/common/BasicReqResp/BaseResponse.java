@@ -1,8 +1,13 @@
 package artim.nemuos.banking.lib.common.BasicReqResp;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.ResponseEntity;
+import reactor.core.publisher.Mono;
+
 import java.util.HashMap;
 
-public class BaseBody {
+public class BaseResponse {
     HashMap<String, String> responseHeaders, cookies;
     int statusCode;
     Object responseBody;
@@ -39,14 +44,22 @@ public class BaseBody {
         this.responseBody = responseBody;
     }
 
-    public BaseBody(HashMap<String, String> responseHeaders, HashMap<String, String> cookies, int statusCode, Object responseBody) {
+    public BaseResponse(HashMap<String, String> responseHeaders, HashMap<String, String> cookies, int statusCode, Object responseBody) {
         this.responseHeaders = responseHeaders;
         this.cookies = cookies;
         this.statusCode = statusCode;
         this.responseBody = responseBody;
     }
-    public BaseBody()
+    public BaseResponse()
     {
 
+    }
+    public BaseResponse(Mono<ResponseEntity<String>> response) throws JsonProcessingException {
+        response.map(entity -> {
+            entity.getHeaders().forEach((k,  v ) -> this.responseHeaders.put(k,String.join(",",v)));
+            this.responseBody = entity.getBody();
+            this.statusCode = entity.getStatusCode().value();
+            return null;
+        });
     }
 }
