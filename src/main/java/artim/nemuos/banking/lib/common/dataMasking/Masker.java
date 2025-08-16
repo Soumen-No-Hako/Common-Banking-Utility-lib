@@ -19,4 +19,8 @@ public class Masker {
     {
         return "xxxx-xxxx-xxxx-"+cardNumber.substring(cardNumber.length()-4);
     }
+    public static String maskAll(String inp)
+    {
+        return "********";
+    }
 }
